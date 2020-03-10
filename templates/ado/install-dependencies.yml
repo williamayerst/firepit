@@ -1,0 +1,9 @@
+steps:
+  - task: UseRubyVersion@0
+    displayName: 'Use Ruby'
+- bash: |
+    ruby --version
+    gem update
+    gem install bundler
+    bundle install
+  displayName: 'Update and Install Gems'

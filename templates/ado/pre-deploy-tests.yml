@@ -1,0 +1,20 @@
+steps:
+- bash: |
+    terraform fmt -recursive -diff -check 
+  displayName: 'Test: Styling' 
+  workingDirectory: ./terraform
+  env:
+    ARM_SUBSCRIPTION_ID: $(azure_subscription_id)
+    ARM_CLIENT_ID: $(azure_client_id)
+    ARM_CLIENT_SECRET: "$(azure_client_secret)"
+    ARM_TENANT_ID: $(azure_tenant_id)
+
+- bash: |
+    terraform init -backend=false && terraform validate
+  displayName: 'Test: Static Analysis' 
+  workingDirectory: ./terraform
+  env:
+    ARM_SUBSCRIPTION_ID: $(azure_subscription_id)
+    ARM_CLIENT_ID: $(azure_client_id)
+    ARM_CLIENT_SECRET: "$(azure_client_secret)"
+    ARM_TENANT_ID: $(azure_tenant_id)
