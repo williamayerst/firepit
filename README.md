@@ -1,6 +1,11 @@
 # Firepit
 
+![Firepit Logo](./logo.jpg)
+
+
 In order to increase confidence in automated deployments, infrastructure testing is required. _firepit_ provides a way to achieve this without the use of kitchen.
+
+
 
 ## Testing Overview for Infrastructure
 
