@@ -1,0 +1,15 @@
+name: inspec-tests
+title: AzureRM Test Profile
+maintainer: William Ayerst
+copyright: William Ayerst
+copyright_email: WillAyerst@gmail.com
+license: MIT
+summary: An example InSpec Compliance Profile
+version: 0.1.0
+depends:
+  - name: inspec-azure
+    url: https://github.com/inspec/inspec-azure/archive/v1.16.0.tar.gz # As appropriate
+supports:
+  - platform: azure
+inspec_version: '>= 4.20.10'
+#inspec_version: '>= 3.9.3' # defaults to >v4

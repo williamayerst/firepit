@@ -1,7 +1,7 @@
-resource_group = 'ecmkitchenrgpcieuw'
+resource_group = 'firepit-example'
 
 control 'azure_network_security_group' do
-  describe azure_network_security_group(resource_group: resource_group, name: 'nsg') do
+  describe azure_network_security_group(resource_group: resource_group, name: 'firepit-example-nsg') do
     it                            { should exist }
     its('type')                   { should eq 'Microsoft.Network/networkSecurityGroups' }
     its('security_rules')         { should_not be_empty }

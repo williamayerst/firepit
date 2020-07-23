@@ -1,0 +1,25 @@
+{
+  "variable": [
+    {
+      "resource_group_name": [
+        {
+          "default": "firepit-example"
+        }
+      ]
+    },
+    {
+      "nsg_name": [
+        {
+          "default": "firepit-example-nsg"
+        }
+      ]
+    },
+    {
+      "rule_name": [
+        {
+          "default": "firepit-example-rule"
+        }
+      ]
+    }
+  ]
+}

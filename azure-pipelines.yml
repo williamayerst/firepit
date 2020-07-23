@@ -1,0 +1,26 @@
+name: $(build.SourceBranchName)-init
+
+variables:
+  # Test Information
+  - name: terraform_filepath
+    value: '$(Build.SourcesDirectory)/terraform'
+  - name: gemfile_path
+    value:  '$(Build.SourcesDirectory)/terraform//tests'
+  - name: inspec_profilenameex
+    value: 'inspec-tests'
+
+pr:
+- master
+
+stages:
+- stage: Test
+  variables:
+  # Credentials + Terraform State
+  - group: credentials # Example credentials used for TF plan/apply/test/destroy i.e. ARM_CLIENT_SECRET, etc.
+
+  jobs:    
+  - template: ./templates/jobs/test-terraform.yml
+    parameters: 
+      terraform_filepath: '$(terraform_filepath)'
+      gemfile_path: '$(gemfile_path)'
+      inspec_profilename: '$(inspec_profilename)'

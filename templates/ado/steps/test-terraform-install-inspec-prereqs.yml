@@ -1,0 +1,21 @@
+parameters:
+  gemfile_path: ''
+
+steps:
+- task: UseRubyVersion@0
+  inputs:
+    versionSpec: '>= 2.4'
+    addToPath: true
+    displayName: 'Install: Ruby'
+
+- bash: |
+    ruby --version
+    gem update
+  displayName: 'Ruby: Update Gems'
+  workingDirectory:  ${{parameters.gemfile_path}}
+
+- script: |
+    gem install bundler
+    bundle install --retry=3 --jobs=4
+  workingDirectory:  ${{parameters.gemfile_path}}
+  displayName: 'Ruby: Install Bundler'

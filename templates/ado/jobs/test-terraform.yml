@@ -1,0 +1,21 @@
+parameters:
+  gemfile_path: ''
+  inspec_profilename: ''
+  terraform_filepath: ''
+
+jobs:
+  - job: Test
+    pool:
+      vmImage: 'ubuntu-18.04'
+    steps:
+      - template: ../steps/test-terraform-fmt-validate.yml
+        parameters:
+          terraform_filepath: ${{parameters.terraform_filepath}}
+      - template: ../steps/test-terraform-install-inspec-prereqs.yml
+        parameters:
+          gemfile_path: ${{parameters.gemfile_path}}
+      - template: ../steps/test-terraform-inspec.yml
+        parameters:
+          gemfile_path: ${{parameters.gemfile_path}}
+          terraform_filepath: ${{parameters.terraform_filepath}}
+          inspec_profilename: ${{parameters.inspec_profilename}}
