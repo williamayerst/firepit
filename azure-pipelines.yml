@@ -5,9 +5,9 @@ variables:
   - name: terraform_filepath
     value: '$(Build.SourcesDirectory)/terraform'
   - name: gemfile_path
-    value:  '$(Build.SourcesDirectory)/terraform//tests'
-  - name: inspec_profilenameex
-    value: 'inspec-tests'
+    value:  '$(Build.SourcesDirectory)/terraform/tests'
+  - name: inspec_profilename
+    value: 'dynamic'
 
 pr:
 - master
