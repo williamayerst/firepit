@@ -1,0 +1,16 @@
+:source-highlighter: rouge
+:pdf-theme: styles/theme.yml
+:doctype: book
+:notitle:
+:table-stripes: even
+
+= firePit Manual
+
+image::images/logo.jpg[]
+
+include::why.adoc[]
+
+include::installation.adoc[]
+
+include::integrate.adoc[]
+
